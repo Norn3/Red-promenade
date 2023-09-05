@@ -9,7 +9,7 @@
         body{
             padding-top: 5%;
             text-align: center;
-            background: url(./2.png) center 50px no-repeat;
+            background: url(./R.jpg) center no-repeat;
             background-size: 1540px 700px;
 
         }

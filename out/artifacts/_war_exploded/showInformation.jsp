@@ -7,10 +7,9 @@
     <title>用户信息</title>
     <style>
         table{
-            margin-left: 610px;
+            margin: auto;
             background-color: #e0f8ff;
             text-align: center;
-            position: center;
             width: 300px;
             height: 300px;
         }

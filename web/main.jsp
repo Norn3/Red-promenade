@@ -143,8 +143,13 @@
             height: 30px;
             border-radius: 10px;
             background-color: #dac7f1;
+            text-align: center;
+            color: white;
+            cursor: pointer;
         }
-
+        .record input{
+            display: none;
+        }
         .title #nextBtn {             /*设置下一题按钮的属性*/
             cursor: pointer;
             position: absolute;
@@ -234,8 +239,9 @@
             </div>
             <div class="gradePage hide">
                 <h1>你的成绩是:<span id="grade">&nbsp</span>分</h1>
-                <div class="record">
-                    <input type="button" value="点击查看答题记录" onclick="postRecord()">
+                <div class="record" onclick="postRecord()">
+                    点击查看答题记录
+<%--                    <input type="button" value="点击查看答题记录" onclick="postRecord()">--%>
                 </div>
                 <form method="post" name="record" >
                     <input type="hidden" name="uID" id="uID" value="0">
@@ -387,42 +393,42 @@
 
     // 随机从题库中抽取五题放进pickQuestion数组中
     let pickQuestion = [];
-    // let pickindexs =[5];
-    // let pickindex = 0;
-    // //检验有无重复题目
-    // let same = 0;
-    // // console.log(pickindex);
-    // for(let i = 0; i < 5; i++)
-    // {
-    //     do{
-    //         same=0;
-    //         pickindex = Math.floor(10 * Math.random())+1;
-    //         for(let j = 0; j < i; j++)
-    //         {
-    //             if(pickindex===pickindexs[j] || pickindex >= data.length){
-    //                 same++;
-    //             }
-    //         }
-    //     }while(same)
-    //     pickindexs[i]=pickindex;
-    // }
+    let pickindexs =[5];
+    let pickindex = 0;
+    //检验有无重复题目
+    let same = 0;
+    // console.log(pickindex);
+    for(let i = 0; i < 5; i++)
+    {
+        do{
+            same=0;
+            pickindex = Math.floor(10 * Math.random())+1;
+            for(let j = 0; j < i; j++)
+            {
+                if(pickindex===pickindexs[j] || pickindex >= data.length){
+                    same++;
+                }
+            }
+        }while(same)
+        pickindexs[i]=pickindex;
+    }
     // // console.log(pickQuestion);
-    function randomGet(data){
-        data.sort(function(){
-            return (0.5-Math.random());
-        });
-        let subArr = data.slice(0,5);
-        pickQuestion = [...pickQuestion,...subArr];
+    // function randomGet(data){
+    //     data.sort(function(){
+    //         return (0.5-Math.random());
+    //     });
+    //     let subArr = data.slice(0,5);
+    //     pickQuestion = [...pickQuestion,...subArr];
+    // }
+
+
+    //将获取的随机数对应的题目从题库中移到所选题目数组中
+    for(let i = 0; i < 5; i++)
+    {
+        pickQuestion[i]=data[pickindexs[i]-1];
     }
 
-
-    // //将获取的随机数对应的题目从题库中移到所选题目数组中
-    // for(let i = 0; i < 5; i++)
-    // {
-    //     pickQuestion[i]=data[pickindexs[i]-1];
-    // }
-
-    randomGet(data);
+    // randomGet(data);
 
     let selectOptions = document.querySelectorAll('.options span');
     let chooseAnswer = -1;
