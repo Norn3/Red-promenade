@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="红色长廊:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="红色长廊" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="D:/Oracle/ojdbc6.jar" />
+          <element id="library" level="project" name="lib" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="红色长廊/web/Web" />
+    </root>
+  </artifact>
+</component>
